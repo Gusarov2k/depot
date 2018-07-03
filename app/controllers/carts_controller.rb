@@ -1,6 +1,9 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
+  module CurrentCart
+  extend ActiveSupport::Concern
+
   # GET /carts
   # GET /carts.json
   def index
@@ -64,7 +67,10 @@ class CartsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
-      @cart = Cart.find(params[:id])
+      @cart = Cart.find(session[:cart_id])
+      rescue ActiveRecord::RecordNotFound
+      @cart = Cart.create
+      session[:cart_id] = @cart.id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
