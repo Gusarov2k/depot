@@ -19,4 +19,19 @@ class CombineItemsInCart < ActiveRecord::Migration
       end
     end
   end
+
+  def down
+    # разбиение записей с quantity>1 на несколько записей
+    LineItem.where("quantity>1").each do |line_item|
+
+      # add individual items
+      line_item.quantity.times do
+        LineItem.create cart_id: line_item.cart_id,
+        product_id: line_item.product_id, quantity: 1
+      end
+      # удаление исходной записи
+      line_item.destroy
+    end
+  end
+
 end
