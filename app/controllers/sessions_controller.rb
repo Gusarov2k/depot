@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_ action :authorize
+
   def new
   end
 
