@@ -19,8 +19,8 @@ class OrderNotifier < ApplicationMailer
   #   en.order_notifier.shipped.subject
   #
   def shipped
-    @greeting = "Hi"
+    @order = order
 
-    mail to: "to@example.org"
+    mail to: order.email, subject: 'Заказ из Pragmatic Store отправлен'
   end
 end
