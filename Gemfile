@@ -35,7 +35,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'activemerchant', '~> 1.31'
-gem 'haml', '~> 4.0'
+gem 'haml'
 gem 'kaminari', '~> 0.14'
 
 
