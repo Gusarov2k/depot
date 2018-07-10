@@ -34,6 +34,11 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'activemerchant', '~> 1.31'
+gem 'haml', '~> 4.0'
+gem 'kaminari', '~> 0.14'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
